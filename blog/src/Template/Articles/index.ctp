@@ -1,16 +1,19 @@
 <div class="content">
+    <!-- File: src/Template/Articles/index.ctp  (edit links added) -->
+
     <h1>Blog articles</h1>
-    <?= $this->Html->link('Adicionar artigo', ['action' => 'add']) ?>
+    <p><?= $this->Html->link("Adicionar artigo", ['action' => 'add']) ?></p>
     <table>
         <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>Created</th>
+            <th>Título</th>
+            <th>Criado</th>
+            <th>Ações</th>
         </tr>
 
-        <!-- Aqui é onde iremos iterar nosso objeto de solicitação $articles, exibindo informações de artigos -->
+    <!-- Aqui é onde iremos iterar nosso objeto de solicitação $articles, exibindo informações de artigos -->
 
-        <?php foreach ($articles as $article): ?>
+    <?php foreach ($articles as $article): ?>
         <tr>
             <td><?= $article->id ?></td>
             <td>
@@ -19,7 +22,11 @@
             <td>
                 <?= $article->created->format(DATE_RFC850) ?>
             </td>
+            <td>
+                <?= $this->Html->link('Editar', ['action' => 'edit', $article->id]) ?>
+            </td>
         </tr>
-        <?php endforeach; ?>
+    <?php endforeach; ?>
+
     </table>
 </div>
