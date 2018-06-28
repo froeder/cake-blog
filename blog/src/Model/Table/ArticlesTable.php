@@ -61,6 +61,11 @@ class ArticlesTable extends Table
             ->scalar('body')
             ->allowEmpty('body');
 
+
+        $validator
+        ->notEmpty('title')
+        ->notEmpty('body');
+
         return $validator;
     }
 }
